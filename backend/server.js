@@ -11,7 +11,10 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.get("/", (req, res) => {
+  res.send("API running 🚀");
+});
 
 mongoose.connect(process.env.MONGO_URI)
-.then(() => app.listen(5000, () => console.log("Server running")))
-.catch(err => console.log(err));
+  .then(() => app.listen(5000, () => console.log("Server running")))
+  .catch(err => console.log(err));
