@@ -9,7 +9,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: "https://frontend-sxyn.onrender.com"
+  origin: "https://newdemo-1111.onrender.com"
 }));
 app.use(express.json());
 
