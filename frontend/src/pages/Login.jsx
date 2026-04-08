@@ -15,7 +15,7 @@ export default function Login() {
       <div className="p-6 shadow-lg rounded-xl w-80">
         <input placeholder="Email" className="input" onChange={e=>setForm({...form,email:e.target.value})}/>
         <input type="password" placeholder="Password" className="input" onChange={e=>setForm({...form,password:e.target.value})}/>
-        <button onClick={submit} className="btn">Login</button>
+        <button onClick={submit} className="btn">Logins</button>
       </div>
     </div>
   );
