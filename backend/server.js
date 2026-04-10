@@ -11,7 +11,7 @@ const app = express();
 // app.use(cors());
 
 app.use(cors({
-  origin: "https://testbackend-uh4y.onrender.com/"
+  origin: "https://testbackend-uh4y.onrender.com"
 }));
 app.use(express.json());
 
