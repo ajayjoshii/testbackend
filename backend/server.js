@@ -8,7 +8,15 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+// app.use(cors());
+
+app.use(
+  cors({
+    origin: "https://testbackendnewlatest.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use("/api/contact", require("./routes/contactRoutes"));
