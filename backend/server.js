@@ -1,23 +1,18 @@
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
-import authRoutes from "./routes/authRoutes.js";
-import dotenv from "dotenv";
+const express = require("express");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const connectDB = require("./config/db");
 
 dotenv.config();
+connectDB();
+
 const app = express();
 
-
-app.use(cors({
-  origin: "http://localhost:5173", // Replace with your frontend URL
-}));
+app.use(cors());
 app.use(express.json());
 
-app.use("/api/auth", authRoutes);
-app.get("/", (req, res) => {
-  res.send("API running 🚀");
-});
+app.use("/api/contact", require("./routes/contactRoutes"));
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => app.listen(5000, () => console.log("Server running")))
-  .catch(err => console.log(err));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
